@@ -23,8 +23,8 @@ if ( isset( $_GET['action'] ) ):
     break;
 
     case 'signup':
-
-      signupPage();
+      if ( !empty( $_POST ) ) signup( $_POST );
+      else signupPage();
 
     break;
 

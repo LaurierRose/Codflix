@@ -73,7 +73,7 @@ class User {
     $req  = $db->prepare( "SELECT * FROM user WHERE email = ?" );
     $req->execute( array( $this->getEmail() ) );
 
-    if( $req->rowCount() > 0 ) throw new Exception( "Email ou mot de passe incorrect" );
+    if( $req->rowCount() > 0 ) throw new Exception( "Cet utilisateur existe déjà !" );
 
     // Insert new user
     $req->closeCursor();
