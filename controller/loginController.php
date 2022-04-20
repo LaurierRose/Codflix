@@ -33,11 +33,12 @@ function login( $post ) {
 
   $user           = new User( $data );
   $userData       = $user->getUserByEmail();
+  var_dump($user->getPassword());
 
   $error_msg      = "Email ou mot de passe incorrect";
 
   if( $userData && sizeof( $userData ) != 0 ):
-    if( $user->getPassword() == $userData['password'] ):
+    if( hash('sha256', $user->getPassword()) == $userData['password'] ):
 
       // Set session
       $_SESSION['user_id'] = $userData['id'];
