@@ -37,7 +37,7 @@
           </div>
         </div>
         <div class="content p-4">
-          <?= $content; ?>
+          <?= $content;?>
         </div>
         <footer>Copyright Cod'Flix</footer>
       </div>
