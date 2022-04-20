@@ -17,10 +17,6 @@ function init_db()
             $user,
             $password);
 
-        $db = new PDO("mysql:host=$host;dbname=$dbname;charset=$charset",
-            $user,
-            $password);
-
     } catch (Exception $e) {
         die('Erreur : ' . $e->getMessage());
     }

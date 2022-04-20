@@ -46,11 +46,21 @@
     text-decoration: none;
 }
 
+.media-list .item .date {
+    color: #fff;
+    font-weight: 200;
+    font-size: 14px;
+    font-style: italic;
+    text-align: center;
+
+}
+
 .media-list .item .summary {
     color: #fff;
     padding: 8px 20px;
 
 }
+
 
 @media screen and (max-width: 768px) {
     .media-list .item {

@@ -21,6 +21,8 @@
                 </div>
             </div>
             <div class="title"><?= $media['title']; ?></div>
+            <!-- I want to display only the year of release -->
+            <div class="date"><?= substr($media['release_date'], 0, 4); ?></div>
         </a>
     <?php endforeach; ?>
 </div>
