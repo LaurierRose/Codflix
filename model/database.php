@@ -12,7 +12,7 @@ function init_db()
         $dbname = $_ENV['CODFLIX_DB_NAME'] ?? 'discoding';
         $charset = $_ENV['CODFLIX_DB_CHARSET'] ?? 'utf8';
         $user = $_ENV['CODFLIX_DB_USER'] ?? 'root';
-        $password = $_ENV['CODFLIX_DB_PASSWORD'] ?? '';
+        $password = $_ENV['CODFLIX_DB_PASSWORD'] ?? 'root';
         $db = new PDO("mysql:host=$host;dbname=$dbname;charset=$charset",
             $user,
             $password);
