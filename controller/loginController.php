@@ -33,7 +33,6 @@ function login( $post ) {
 
   $user           = new User( $data );
   $userData       = $user->getUserByEmail();
-  var_dump($user->getPassword());
 
   $error_msg      = "Email ou mot de passe incorrect";
 

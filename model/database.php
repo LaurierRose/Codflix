@@ -11,8 +11,8 @@ function init_db()
         $host = $_ENV['CODFLIX_DB_HOST'] ?? 'localhost';
         $dbname = $_ENV['CODFLIX_DB_NAME'] ?? 'discoding';
         $charset = $_ENV['CODFLIX_DB_CHARSET'] ?? 'utf8';
-        $user = $_ENV['CODFLIX_DB_USER'] ?? 'root';
-        $password = $_ENV['CODFLIX_DB_PASSWORD'] ?? 'root';
+        $user = $_ENV['CODFLIX_DB_USER'] ?? 'site';
+        $password = $_ENV['CODFLIX_DB_PASSWORD'] ?? 'codFlix2022TP%';
         $db = new PDO("mysql:host=$host;dbname=$dbname;charset=$charset",
             $user,
             $password);

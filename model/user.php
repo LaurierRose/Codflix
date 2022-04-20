@@ -7,6 +7,8 @@ class User {
   protected $id;
   protected $email;
   protected $password;
+  protected $active;
+  protected $validation_key;
 
   public function __construct( $user = null ) {
 
@@ -14,6 +16,7 @@ class User {
       $this->setId( isset( $user->id ) ? $user->id : null );
       $this->setEmail( $user->email );
       $this->setPassword( $user->password, isset( $user->password_confirm ) ? $user->password_confirm : false );
+      $this->setValidationKey(isset( $user->validation_key ) ? $user->validation_key : md5(microtime(TRUE)*100000) );
     endif;
   }
 
@@ -44,6 +47,16 @@ class User {
     $this->password = $password;
   }
 
+  public function setValidationKey( $validation_key ) {
+    $this->validation_key = $validation_key;
+  }
+
+  public function setActive() {
+    if($this->active != true):
+      $this->active = true;
+    endif;
+  }
+
   /***************************
   * -------- GETTERS ---------
   ***************************/
@@ -58,6 +71,10 @@ class User {
 
   public function getPassword() {
     return $this->password;
+  }
+
+  public function getValidationKey() {
+    return $this->validation_key;
   }
 
   /***********************************
@@ -78,10 +95,11 @@ class User {
     // Insert new user
     $req->closeCursor();
 
-    $req  = $db->prepare( "INSERT INTO user ( email, password ) VALUES ( :email, :password )" );
+    $req  = $db->prepare( "INSERT INTO user ( email, password, validation_key ) VALUES ( :email, :password , :validation_key )" );
     $req->execute( array(
       'email'     => $this->getEmail(),
-      'password'  => hash('sha256', $this->getPassword())
+      'password'  => hash('sha256', $this->getPassword()),
+      'validation_key'  => $this->getValidationKey()
     ));
 
     // Close databse connection
@@ -125,4 +143,23 @@ class User {
     return $req->fetch();
   }
 
+
+
+/****************************************************
+* ------- SET USER ACCOUNT ACTIVE ON DATABASE -------
+*****************************************************/
+
+  public static function setUserAccountActive($id){
+
+    // Open database connection
+    $db   = init_db();
+
+    $req  = $db->prepare( "UPDATE user SET active = true WHERE id = ?" );
+    $req->execute( array( $id ));
+
+    // Close databse connection
+    $db   = null;
+
+  }
 }
+

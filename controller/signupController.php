@@ -1,6 +1,7 @@
 <?php
 
 require_once( 'model/user.php' );
+require_once( 'model/mail.php' );
 
 /****************************
 * ----- LOAD SIGNUP PAGE -----
@@ -32,12 +33,13 @@ function  signup($post) {
   try{
     $new_user = new User( $user_data );
     $new_user->createUser();
-
+    
     // Set session for the new user
     $user = $new_user->getUserByEmail();
-    $_SESSION['user_id'] = $user['id'];
+    sendValidationEmail($user);
+    //$_SESSION['user_id'] = $user['id'];
     
-    header( 'location: index.php ');
+    //header( 'location: index.php ');
 
   } catch (Exception $e){
     //Use User class Exceptions to check if passwords are identicals and email correct
