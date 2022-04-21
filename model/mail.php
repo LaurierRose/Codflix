@@ -16,7 +16,7 @@ function sendValidationEmail($user){
     Pour activer votre compte, veuillez cliquer sur le lien ci-dessous
     ou copier/coller dans votre navigateur Internet.
      
-    https://localhost/Codeflix/projet-cod-flix---php-LaurierRose/index.php?id='.urlencode($login).'&key='.urlencode($key).'
+    http://localhost/Codeflix/projet-cod-flix---php-LaurierRose/index.php?id='.urlencode($login).'&key='.urlencode($key).'
     
     ---------------
     Ceci est un mail automatique, Merci de ne pas y répondre.';

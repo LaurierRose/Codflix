@@ -172,11 +172,10 @@ class User {
   ***********************************/
 
   public function updateEmail(){
-
     // Open database connection
     $db   = init_db();
-
-    $req  = $db->prepare( "UPDATE `user` SET `email` = :email WHERE `user`.`id` = :id" );
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $req  = $db->prepare( "UPDATE user SET email = :email WHERE id = :id" );
 
     $req->execute( array(
       'email' => $this->getEmail(),
@@ -192,10 +191,25 @@ class User {
 
     // Open database connection
     $db   = init_db();
-
-    $req  = $db->prepare( "UPDATE `user` SET `password` = :password WHERE `user`.`id` = :id" );
+    
+    $req  = $db->prepare( "UPDATE user SET password = :password WHERE id = :id" );
     $req->execute( array(
       'password'  => password_hash($this->getPassword(), PASSWORD_DEFAULT),
+      'id'  => $this->getId()
+    ));
+
+    // Close database connection
+    $db   = null;
+
+  }
+
+  public function deleteUser(){
+
+    // Open database connection
+    $db   = init_db();
+    
+    $req  = $db->prepare( "DELETE FROM user WHERE id = :id" );
+    $req->execute( array(
       'id'  => $this->getId()
     ));
 
