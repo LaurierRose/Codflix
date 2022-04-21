@@ -4,15 +4,22 @@
   <div class="bg-black">
     <div class="row no-gutters">
       <div class="col-md-6 full-height bg-white">
-        <div class="auth-container">
+        <div class="auth-container custom-form">
           <h2><span>Cod</span>'Flix</h2>
           <h3>Activation</h3>
-          <div class="col-md-6">
-            <p class="error-msg">
-              <?= isset( $message ) ? $message : null; ?>
-            </p>
-            <a href="index.php" class="btn btn-block bg-blue">Retour</a>
-          </div>
+          <div class="form-group">
+            <div class="col-md-12 row">
+              <span class="user-msg">
+                <?= isset( $message ) ? $message : null; ?>
+              </span>
+                <div class="col-md-6">
+                  <a href="index.php" class="btn btn-block bg-blue">Retour</a>
+                </div>
+                <div class="col-md-6">
+                  <a href="index.php" class="btn btn-block btn-secondary">Contact</a>
+                </div>
+            </div>
+          </div>    
         </div>
       </div>
       <div class="col-md-6 full-height">

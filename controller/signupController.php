@@ -32,6 +32,8 @@ function  signup($post) {
 
   try{
     $new_user = new User( $user_data );
+
+    //Inserts new user data in database
     $new_user->createUser();
     
     // Set session for the new user

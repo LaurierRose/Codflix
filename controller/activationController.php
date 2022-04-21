@@ -1,7 +1,5 @@
 <?php
 
-//session_start();
-
 require_once( 'model/user.php' );
 
 /*********************************
@@ -17,14 +15,14 @@ function activationPage($get) {
 
   //Get account information from id
   $user = User::getUserById( $id );
+  //var_dump($user);
+  if($user):
 
-  if($user['active'] == '1'): // If the account is already active
-    $message = "Votre compte est déjà actif !";
+    if($user['active'] == '1'): // If the account is already active
+      $message = "Votre compte est déjà actif !";
+    endif;
 
-  else:
-
-    if($key == $user['validation_key'])    
-      {    
+    if($key == $user['validation_key']):    
         $message = "Votre compte a bien été activé !"; 
 
         // Activation of user account
@@ -32,15 +30,15 @@ function activationPage($get) {
 
         // Set session
         $_SESSION['user_id'] = $user['id'];
-      }
-    else // If the keys don't match
-      {
-      $message = "Erreur ! Votre compte ne peut être activé...";
-      }
+    else: // If the keys don't match
+      $message = "Erreur ! Les clés ne correspondent pas... 
+      Contactez-nous pour plus d'informations.";
     endif;
-
-    require('view/auth/activationView.php');
-
+  else:
+    $message = "Erreur ! Votre compte ne peut être activé... 
+      Contactez-nous pour plus d'informations.";
+  endif;
+      require('view/auth/activationView.php');
 }
 
 

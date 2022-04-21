@@ -7,6 +7,7 @@ require_once( 'controller/loginController.php' );
 require_once( 'controller/signupController.php' );
 require_once( 'controller/mediaController.php' );
 require_once( 'controller/activationController.php' );
+require_once( 'controller/contactController.php' );
 
 /**************************
 * ----- HANDLE ACTION -----
@@ -35,8 +36,15 @@ if ( isset( $_GET['action'] ) ):
 
     break;
 
+    case 'sendmessage':
+      if ( !empty( $_POST ) ) sendmessage( $_POST );
+      else contactPage();
+
+    break;
+
   endswitch;
 
+//Validation email account page redirection
 elseif( isset($_GET['key'])):
   activationPage($_GET);
 

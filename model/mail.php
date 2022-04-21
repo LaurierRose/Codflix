@@ -21,7 +21,7 @@ function sendValidationEmail($user){
     ---------------
     Ceci est un mail automatique, Merci de ne pas y répondre.';
      
-    var_dump($recipient, $object, $message, $header);
+    var_dump("Activation email: ".$recipient, $object, $message, $header);
     
     mail($recipient, $object, $message, $header); 
 
@@ -30,15 +30,14 @@ function sendValidationEmail($user){
 function sendContactEmail($message){
 
     $recipient = 'contact@codflix.com”';
-    $object = $message['objet'] ;
-    $header = "From: ". $message['email'] ;
-    $text = $message['text'];
+    $object = $message->object ;
+    $header = "Email : ". $message->email ;
+    $text = $message->text;
 
-    var_dump($recipient, $object, $message, $header);
+    //var_dump("Contact email: ".$recipient, $object, $message, $header);
 
     mail($recipient, $object, $text, $header);
-}
 
- 
+}
 
 ?>

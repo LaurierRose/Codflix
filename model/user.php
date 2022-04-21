@@ -77,6 +77,10 @@ class User {
     return $this->validation_key;
   }
 
+  public function getActive() {
+    return $this->active;
+  }
+
   /***********************************
   * -------- CREATE NEW USER ---------
   ************************************/

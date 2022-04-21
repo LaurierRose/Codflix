@@ -12,7 +12,9 @@
 
             <div class="form-group">
               <label for="email">Adresse email</label>
-              <input type="email" name="email" value="" id="email" class="form-control" required/>
+              <input type="email" name="email" value="" 
+              id="email" class="form-control" required
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/>
             </div>
 
             <div class="form-group">

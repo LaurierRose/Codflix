@@ -2,7 +2,7 @@
 * Forms style
 **********/
 
-.custom-form .error-msg {
+.custom-form .error-msg, .custom-form .user-msg {
   display: block;
 
   margin: 15px 0 0 0;
@@ -11,6 +11,10 @@
 
   font-weight: 600;
   text-align: center;
+}
+
+.custom-form .user-msg {
+  color: var(--color-grey);
 }
 
 .form-group.has-btn {
