@@ -23,3 +23,4 @@ function init_db()
 
     return $db;
 }
+

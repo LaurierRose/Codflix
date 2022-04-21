@@ -106,7 +106,7 @@ class User {
       'validation_key'  => $this->getValidationKey()
     ));
 
-    // Close databse connection
+    // Close database connection
     $db = null;
 
   }
@@ -123,7 +123,7 @@ class User {
     $req  = $db->prepare( "SELECT * FROM user WHERE id = ?" );
     $req->execute( array( $id ));
 
-    // Close databse connection
+    // Close database connection
     $db   = null;
 
     return $req->fetch();
@@ -141,7 +141,7 @@ class User {
     $req  = $db->prepare( "SELECT * FROM user WHERE email = ?" );
     $req->execute( array( $this->getEmail() ));
 
-    // Close databse connection
+    // Close database connection
     $db   = null;
 
     return $req->fetch();
@@ -161,9 +161,47 @@ class User {
     $req  = $db->prepare( "UPDATE user SET active = true WHERE id = ?" );
     $req->execute( array( $id ));
 
-    // Close databse connection
+    // Close database connection
     $db   = null;
 
   }
-}
 
+
+/************************************
+  * ------- UPDATE USER DATA  -------
+  ***********************************/
+
+  public function updateEmail(){
+
+    // Open database connection
+    $db   = init_db();
+
+    $req  = $db->prepare( "UPDATE `user` SET `email` = :email WHERE `user`.`id` = :id" );
+
+    $req->execute( array(
+      'email' => $this->getEmail(),
+      'id'  => $this->getId()
+    ));
+
+    // Close database connection
+    $db   = null;
+
+  }
+
+  public function updatePswd(){
+
+    // Open database connection
+    $db   = init_db();
+
+    $req  = $db->prepare( "UPDATE `user` SET `password` = :password WHERE `user`.`id` = :id" );
+    $req->execute( array(
+      'password'  => password_hash($this->getPassword(), PASSWORD_DEFAULT),
+      'id'  => $this->getId()
+    ));
+
+    // Close database connection
+    $db   = null;
+
+  }
+
+}  

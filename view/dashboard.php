@@ -19,6 +19,7 @@
         <div class="sidebar-menu">
           <ul>
             <li class="active"><a href="index.php">Accueil</a></li>
+            <li><a href="index.php?action=profile">Mon profil</a></li>
             <li><a href="index.php?action=sendmessage">Nous contacter</a></li>
             <li><a href="index.php?action=logout">Me déconnecter</a></li>
           </ul>

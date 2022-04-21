@@ -8,6 +8,7 @@ require_once( 'controller/signupController.php' );
 require_once( 'controller/mediaController.php' );
 require_once( 'controller/activationController.php' );
 require_once( 'controller/contactController.php' );
+require_once( 'controller/profileController.php' );
 
 /**************************
 * ----- HANDLE ACTION -----
@@ -39,6 +40,12 @@ if ( isset( $_GET['action'] ) ):
     case 'sendmessage':
       if ( !empty( $_POST ) ) sendmessage( $_POST );
       else contactPage();
+
+    break;
+
+    case 'profile':
+      if ( !empty( $_POST ) ) profile( $_POST );
+      else profilePage();
 
     break;
 

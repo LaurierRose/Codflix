@@ -46,10 +46,9 @@
 }
 #sidebar ul li a:after {
     content: "";
-
     display: block;
-    width: 10px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+    width: 15px;
+    border-bottom: 2px solid var(--color-red);
 
     margin-top: 10px;
 }
@@ -64,7 +63,9 @@
 
 @media (max-width: 991.98px) {
 
-  #sidebar {margin-left: -250px;}
+  #sidebar {
+    margin-left: -250px;
+  }
   #sidebar.active {margin-left: 0;}
   #sidebar .custom-menu {
     margin-right: -50px !important;
