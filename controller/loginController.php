@@ -37,10 +37,14 @@ function login( $post ) {
   $error_msg      = "Email ou mot de passe incorrect";
 
   if( $userData && sizeof( $userData ) != 0 ):
-    if( hash('sha256', $user->getPassword()) == $userData['password'] ):
+    if(!$userData['active']):
+      //Checks if user has activated his account
+      $error_msg = "Votre compte n'a pas encore été activé !";
+    elseif( password_verify($user->getPassword(), $userData['password'] )):
 
       // Set session
       $_SESSION['user_id'] = $userData['id'];
+      $_SESSION['user_email'] = $userData['email'];
 
       header( 'location: index.php ');
     endif;

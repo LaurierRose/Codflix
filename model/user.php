@@ -98,7 +98,7 @@ class User {
     $req  = $db->prepare( "INSERT INTO user ( email, password, validation_key ) VALUES ( :email, :password , :validation_key )" );
     $req->execute( array(
       'email'     => $this->getEmail(),
-      'password'  => hash('sha256', $this->getPassword()),
+      'password'  => password_hash($this->getPassword(), PASSWORD_DEFAULT),
       'validation_key'  => $this->getValidationKey()
     ));
 
