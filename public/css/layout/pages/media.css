@@ -52,13 +52,15 @@
     font-size: 14px;
     font-style: italic;
     text-align: center;
-
 }
 
 .media-list .item .summary {
     color: #fff;
     padding: 8px 20px;
+}
 
+.media-list #mediatype {
+    text-transform: uppercase ;
 }
 
 

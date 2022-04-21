@@ -20,8 +20,9 @@ function sendValidationEmail($user){
     
     ---------------
     Ceci est un mail automatique, Merci de ne pas y répondre.';
-     
-    var_dump("Activation email: ".$recipient, $object, $message, $header);
+    
+    //In order to test validation link
+    var_dump($message);
     
     mail($recipient, $object, $message, $header); 
 

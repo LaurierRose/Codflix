@@ -20,7 +20,14 @@
                             src="<?= $media['trailer_url']; ?>" ></iframe>
                 </div>
             </div>
-            <div class="title"><?= $media['title']; ?></div>
+            <div class="title"><?= $media['title']; 
+            if($media['type']== 'serie'):
+                echo ' <span id="mediatype" class="badge bg-red">'. $media['type']. '</span>';
+            else:
+                echo ' <span id="mediatype" class="badge bg-blue">'. $media['type']. '</span>';
+            endif;
+               ?>
+            </div>
             <!-- I want to display only the year of release -->
             <div class="date"><?= substr($media['release_date'], 0, 4); ?></div>
         </a>
