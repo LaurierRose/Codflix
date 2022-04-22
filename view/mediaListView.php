@@ -42,7 +42,7 @@
                     </select>
                 </div>
                 <div class="form-group m-1">
-                    <label class="btn" for="maxyear"> jusqu'à </label>
+                    <label class="btn" for="maxyear">Sorti jusqu'en </label>
                     <select id="maxyear" name="maxyear" class= "btn-secondary">
                         <option value="">Tous</option>
                         <?php 

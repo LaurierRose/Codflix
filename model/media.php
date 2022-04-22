@@ -111,7 +111,6 @@ class Media {
     $title = 'WHERE title LIKE "%'.$title.'%"';
   
     $query = "SELECT * FROM media " .$title. " " .$params. " ORDER BY release_date DESC";
-    var_dump($query);
     $req  = $db->prepare( $query );
     $req->execute();
 

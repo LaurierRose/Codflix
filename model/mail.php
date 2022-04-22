@@ -21,8 +21,10 @@ function sendValidationEmail($user){
     ---------------
     Ceci est un mail automatique, Merci de ne pas y répondre.';
     
-    //In order to test validation link
-    var_dump($message);
+    /****************************************************************
+    * ----- Uncomment Var_dump below to test validation address -----
+    ****************************************************************/
+    //var_dump($message);
     
     mail($recipient, $object, $message, $header); 
 
