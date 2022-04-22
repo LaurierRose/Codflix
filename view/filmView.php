@@ -6,7 +6,7 @@
     <div class="card-body">
         <h5 class="card-title"><?= $media['title']; ?></h5>
         <p class="card-text"><?= $media['summary']; ?></p>
-        <a href="#" class="btn btn-primary">Regarder</a>
+        <a href="#" class="btn btn-secondary">Regarder</a>
     </div>
 </div>
 

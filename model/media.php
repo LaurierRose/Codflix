@@ -121,6 +121,43 @@ class Media {
     return $req->fetchAll();
 
   }
+
+  /*************************************************
+  * ----- GET LIST SEASON/EPISODES FROM MEDIA  -----
+  *************************************************/
   
+  public static function getEpisodes( $id ) {
+
+    // Open database connection
+    $db   = init_db();
+
+    $req  = $db->prepare( "SELECT * FROM episodes e, saisons s 
+                            WHERE e.idsaison = s.idsaison 
+                            AND s.idmedia = ?" );
+    $req->execute( array( $id ));
+
+    // Close database connection
+    $db   = null;
+
+    return $req->fetchAll();
+
+  }
+
+  public static function getSeasonId( $id ) {
+
+    // Open database connection
+    $db   = init_db();
+
+    $req  = $db->prepare( "SELECT DISTINCT idsaison FROM saisons 
+                            WHERE idmedia = ?" );
+    $req->execute( array( $id ));
+
+    // Close database connection
+    $db   = null;
+
+    return $req->fetchAll();
+
+  }
+
 
 }

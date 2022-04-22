@@ -25,10 +25,21 @@ function mediaPage() {
 
 function mediaDetail($get){
   $media = Media::getMedia($get['media'])[0];
-  var_dump($media);
+  //var_dump($media);
+  
+
+  //Display the right type of media view if it is film or serie
   if($media['type']=='film'):
     require('view/filmView.php');
   else:
+    //Get list of seasons and episodes to display them in the tabs of the view
+    $episodes = Media::getEpisodes($media['id']);
+    $seasonsid = Media::getSeasonId($media['id']);
+
+foreach( $episodes as $episode ): 
+    //var_dump($episode['idsaison']);
+endforeach;
+
     require('view/serieView.php');
   endif;
 } 
