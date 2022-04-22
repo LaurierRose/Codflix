@@ -159,5 +159,20 @@ class Media {
 
   }
 
+  public static function getGenre( ) {
+
+    // Open database connection
+    $db   = init_db();
+
+    $req  = $db->prepare( "SELECT name FROM genre" );
+    $req->execute();
+
+    // Close database connection
+    $db   = null;
+
+    return $req->fetchAll();
+
+  }
+
 
 }

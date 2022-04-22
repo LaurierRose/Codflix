@@ -10,6 +10,7 @@ function mediaPage() {
 
   $search = isset( $_GET['title'] ) ? $_GET['title'] : null;
   $medias = Media::filterMedias( $search );
+  $genres = Media::getGenre();
 
   if(isset($_GET['media'])):
     mediaDetail($_GET);
@@ -35,7 +36,7 @@ function mediaDetail($get){
     //Get list of seasons and episodes to display them in the tabs of the view
     $episodes = Media::getEpisodes($media['id']);
     $seasonsid = Media::getSeasonId($media['id']);
-
+    
 foreach( $episodes as $episode ): 
     //var_dump($episode['idsaison']);
 endforeach;
