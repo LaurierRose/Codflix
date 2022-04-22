@@ -71,6 +71,8 @@
     margin-right: -50px !important;
     top: 10px !important;
   }
+  
+  #sidebar.open {margin-left: 0 !important;}
 
 }
 

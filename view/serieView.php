@@ -43,20 +43,20 @@
       else:
         $active = '';
       endif;?>
-      <div class="<?= $active; ?> card-body tab-pane in" id ="saison<?= $count; ?>">
+      <div class="<?= $active; ?> card-body tab-pane in " id ="saison<?= $count; ?>">
         <div class="media-list">
 
           <?php foreach( $episodes as $episode ): 
             if($episode['idsaison'] == $seasonid['idsaison']):?>
 
-            <div class="card video m-1" style="width: 15rem;">
+            <div class="card video item" ">
               <iframe allowfullscreen="" style="border:none;"
                           src="<?= $episode['urlep']; ?>" ></iframe>
               <div class="card-body">
-                <h5 class="card-title"><?= $episode['titreep']; ?></h5>
+                <h5 class="card-title title"><?= $episode['titreep']; ?></h5>
                 <a href="#" class="btn btn-secondary">Regarder</a> <br>
                 <small class="date">Durée : <?= $episode['duration']; ?> mn</small>
-                <p class="card-text"><?= $episode['summaryep']; ?></p>
+                <p class="card-text summary"><?= $episode['summaryep']; ?></p>
               </div>
           </div>
 
