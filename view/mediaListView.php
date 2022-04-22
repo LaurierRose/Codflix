@@ -2,8 +2,8 @@
 <div class="row">
     <div class="col-md-10 ">
         <!-- search area -->
-        <form method="get" class="column">
-            <div class= "filters-search row mx-2">
+        <form method="get" class="column ">
+            <div class= "filters-search row mx-2 d-flex justify-content-evenly">
                 <!-- search by style of stream -->
                 <div class="form-group m-1"> 
                     <label class="btn" for="genre">Genre</label>
@@ -12,7 +12,7 @@
                         <?php 
                         foreach( $genres as $genre ): 
                         ?>
-                        <option value="<?=$genre['name'];?>"><?=$genre['name'];?></option>
+                        <option value="<?=$genre['id'];?>"><?=$genre['name'];?></option>
                         <?php 
                         endforeach; 
                         ?>
@@ -29,8 +29,21 @@
                 </div>
                 <!-- search by year of stream -->
                 <div class="form-group m-1">
-                    <label class="btn" for="year">Année de sortie</label>
-                    <select id="year" name="year" class= "btn-secondary">
+                    <label class="btn" for="minyear">Sorti depuis</label>
+                    <select id="minyear" name="minyear" class= "btn-secondary">
+                        <option value="">Tous</option>
+                        <?php 
+                        for($i = 1900; $i <= 2029; $i++): 
+                        ?>
+                        <option value="<?=$i;?>"><?=$i;?></option>
+                        <?php 
+                        endfor; 
+                        ?>
+                    </select>
+                </div>
+                <div class="form-group m-1">
+                    <label class="btn" for="maxyear"> jusqu'à </label>
+                    <select id="maxyear" name="maxyear" class= "btn-secondary">
                         <option value="">Tous</option>
                         <?php 
                         for($i = 1900; $i <= 2029; $i++): 

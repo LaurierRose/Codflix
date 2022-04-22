@@ -7,11 +7,9 @@ require_once( 'model/media.php' );
 ***************************/
 
 function mediaPage() {
-
   $search = isset( $_GET['title'] ) ? $_GET['title'] : null;
-  $medias = Media::filterMedias( $search );
   $genres = Media::getGenre();
-
+  $medias = Media::filterMedias( $search, $_GET);
   if(isset($_GET['media'])):
     mediaDetail($_GET);
   else:

@@ -88,13 +88,32 @@ class Media {
   * -------- GET LIST --------
   ***************************/
 
-  public static function filterMedias( $title ) {
+  public static function filterMedias( $title , $get) {
 
     // Open database connection
     $db   = init_db();
 
-    $req  = $db->prepare( "SELECT * FROM media WHERE title LIKE :title ORDER BY release_date DESC" );
-    $req->execute( array( ':title' => '%'.$title.'%'));
+    //Add filters to Query
+    $params = '';
+    if(isset($get['genre'])){
+      $params .= ' AND genre_id = '.$get['genre'];
+    }
+    if(isset($get['type'])){
+      $params .= ' AND type ="'.$get['type'] .'"';
+    }
+    if(isset($get['minyear'])){
+      $params .= ' AND release_date >= "'.$get['minyear']. '-01-01"';
+    }
+    if(isset($get['maxyear'])){
+      $params .= ' AND release_date <="'.$get['maxyear']. '-01-01"';
+    }
+
+    $title = 'WHERE title LIKE "%'.$title.'%"';
+  
+    $query = "SELECT * FROM media " .$title. " " .$params. " ORDER BY release_date DESC";
+
+    $req  = $db->prepare( $query );
+    $req->execute();
 
     // Close database connection
     $db   = null;
@@ -143,6 +162,7 @@ class Media {
 
   }
 
+  
   public static function getSeasonId( $id ) {
 
     // Open database connection
@@ -159,12 +179,16 @@ class Media {
 
   }
 
+  /*******************************************
+  * ----- GET THE LIST OF MEDIAS GENRES  -----
+  *******************************************/
+
   public static function getGenre( ) {
 
     // Open database connection
     $db   = init_db();
 
-    $req  = $db->prepare( "SELECT name FROM genre" );
+    $req  = $db->prepare( "SELECT * FROM genre" );
     $req->execute();
 
     // Close database connection
