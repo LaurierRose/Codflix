@@ -76,9 +76,9 @@
             </div>
             <div class="title"><?= $media['title']; 
             if($media['type']== 'serie'):
-                echo ' <span id="mediatype" class="badge bg-red">'. $media['type']. '</span>';
+                echo ' <span class="badge bg-red">'. $media['type']. '</span>';
             else:
-                echo ' <span id="mediatype" class="badge bg-blue">'. $media['type']. '</span>';
+                echo ' <span class="badge bg-blue">'. $media['type']. '</span>';
             endif;
                ?>
             </div>
