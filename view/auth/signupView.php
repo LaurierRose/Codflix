@@ -17,14 +17,22 @@
               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/>
             </div>
 
+            <!-- Password is verified by regexp before submiting to validation -->
             <div class="form-group">
               <label for="password">Mot de passe</label>
-              <input type="password" name="password" id="password" class="form-control" required/>
+              <input type="password" name="password" id="password" class="form-control" 
+              pattern="^(?=.*[0-9])(?=.*[az])(?=.*[AZ])(?=.*[@#$%^&-+=() ])(?=\\S+$).{8, 20}$" 
+              required title="Au moins 8 caractères, un chiffre, une lettre majuscule et une minuscule"
+              />
             </div>
 
             <div class="form-group">
               <label for="password_confirm">Confirmez votre mot de passe</label>
-              <input type="password" name="password_confirm" id="password_confirm" class="form-control" required/>
+              <input type="password" name="password_confirm" 
+              id="password_confirm" class="form-control" 
+              pattern="^(?=.*[0-9])(?=.*[az])(?=.*[AZ])(?=.*[@#$%^&-+=() ])(?=\\S+$).{8, 20}$" 
+              required title="Au moins 8 caractères, un chiffre, une lettre majuscule et une minuscule"
+              />
             </div>
 
             <div class="form-group">

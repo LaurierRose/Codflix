@@ -8,14 +8,14 @@
           <h2><span>Cod</span>'Flix</h2>
           <h3>Activation</h3>
           <div class="form-group">
-            <div class="col-md-12 row">
-              <span class="user-msg">
-                <?= isset( $message ) ? $message : null; ?>
-              </span>
-                <div class="col-md-6">
-                  <a href="index.php" class="btn btn-block bg-blue">Retour</a>
+            <span class="user-msg m-3">
+              <?= isset( $message ) ? $message : null; ?>
+            </span>
+            <div class="col-md-12 row my-5">
+                <div class="col-md-6 my-1">
+                  <a href="index.php" class="btn btn-block bg-red">Retour</a>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 my-1">
                   <a href="index.php" class="btn btn-block btn-secondary">Contact</a>
                 </div>
             </div>

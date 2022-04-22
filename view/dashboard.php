@@ -30,8 +30,8 @@
       <div id="content">
         <div class="header">
           <h2 class="title">Cod<span>'Flix</span></h2>
-          <div class="toggle-menu d-block d-md-none">
-            <button type="button" id="sidebarCollapse" class="btn btn-primary">
+          <div class="toggle-menu d-block d-lg-none">
+            <button type="button" id="sidebarCollapse" class="btn btn-secondary">
               <i class="fas fa-bars"></i>
               <span class="sr-only">Toggle Menu</span>
             </button>
