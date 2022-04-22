@@ -95,23 +95,23 @@ class Media {
 
     //Add filters to Query
     $params = '';
-    if(isset($get['genre'])){
+    if(isset($get['genre'])&& $get['genre']>0){
       $params .= ' AND genre_id = '.$get['genre'];
     }
-    if(isset($get['type'])){
+    if(isset($get['type'])&& $get['type']>0){
       $params .= ' AND type ="'.$get['type'] .'"';
     }
-    if(isset($get['minyear'])){
+    if(isset($get['minyear'])&& $get['minyear']>0){
       $params .= ' AND release_date >= "'.$get['minyear']. '-01-01"';
     }
-    if(isset($get['maxyear'])){
+    if(isset($get['maxyear'])&& $get['maxyear']>0){
       $params .= ' AND release_date <="'.$get['maxyear']. '-01-01"';
     }
 
     $title = 'WHERE title LIKE "%'.$title.'%"';
   
     $query = "SELECT * FROM media " .$title. " " .$params. " ORDER BY release_date DESC";
-
+    var_dump($query);
     $req  = $db->prepare( $query );
     $req->execute();
 
